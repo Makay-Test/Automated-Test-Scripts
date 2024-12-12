@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class ValidateCart {
+public class Test_03_ValidateCart {
 
 	public static void main(String[] args) {
 

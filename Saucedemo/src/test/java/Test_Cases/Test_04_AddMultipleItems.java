@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class AddMultipleItems {
+public class Test_04_AddMultipleItems {
 
 	public static void main(String[] args) {
 
