@@ -19,6 +19,7 @@ public class Test_02_AddItems {
 		
 		//Select/Add an item.
 		driver.findElement(By.id("add-to-cart-sauce-labs-bike-light")).click();
+		driver.close();
 
 	}
 }

@@ -36,5 +36,6 @@ public class Test_03_ValidateCart {
 
 		// Validate if items are present in Cart
 		driver.findElement(By.id("shopping_cart_container")).click();
+		driver.close();
 	}
 }

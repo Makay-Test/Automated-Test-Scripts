@@ -25,5 +25,6 @@ public class Test_04_AddMultipleItems {
 		driver.findElement(By.id("add-to-cart-sauce-labs-fleece-jacket")).click();
 		driver.findElement(By.id("add-to-cart-sauce-labs-onesie")).click();
 		driver.findElement(By.id("add-to-cart-test.allthethings()-t-shirt-(red)")).click();
+		driver.close();
 	}
 }
