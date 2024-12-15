@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestCase_05 {
+public class TestCase_05 extends Functions{
 	public static void main(String[] args) {
 
 //	TestCase #05 - Register User with existing email
@@ -23,11 +23,9 @@ public class TestCase_05 {
 
 		// Initialize WebDriver
 		WebDriverManager.chromedriver().setup();
-		ChromeDriver driver = new ChromeDriver();
 
 		// Launch Browser
-		driver.get("https://www.automationexercise.com/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		Functions.openBrowser();;
 
 		// Login
 		driver.findElement(By.xpath("//*[text()=' Signup / Login']")).click();

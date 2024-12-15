@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestCase_08 {
+public class TestCase_08 extends Functions{
 
 	public static void main(String[] args) {
 //	Test Case #08 - Verify All Products and product detail page
@@ -23,11 +23,9 @@ public class TestCase_08 {
 
 		// Initialize WebDriver.
 		WebDriverManager.chromedriver().setup();
-		ChromeDriver driver = new ChromeDriver();
 
 		// Launch Browser.
-		driver.get("https://www.automationexercise.com/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		Functions.openBrowser();
 
 		// Click on Products button.
 		driver.findElement(By.xpath("//a[@href='/products']")).click();

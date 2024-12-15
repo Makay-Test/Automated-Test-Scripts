@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestCase_02 {
+public class TestCase_02 extends Functions{
 
 	public static void main(String[] args) {
 
@@ -24,17 +24,12 @@ public class TestCase_02 {
 
 		// Initialize WebDriver
 		WebDriverManager.chromedriver().setup();
-		ChromeDriver driver = new ChromeDriver();
-
+		
 		// Launch Browser
-		driver.get("https://www.automationexercise.com/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		Functions.openBrowser();
 
 		// Login
-		driver.findElement(By.xpath("//*[text()=' Signup / Login']")).click();
-		driver.findElement(By.xpath("//form[@action='/login']//child::input[2]")).sendKeys("Test22333@yopmail.com");
-		driver.findElement(By.xpath("//form[@action='/login']//child::input[3]")).sendKeys("Testpass");
-		driver.findElement(By.xpath("//form[@action='/login']//child::button")).click();
+		Functions.Login();
 		
 		//Close browser.
 		driver.close();

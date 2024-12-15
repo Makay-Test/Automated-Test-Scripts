@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestCase_12 {
+public class TestCase_12 extends Functions{
 
 	public static void main(String[] args) {
 
@@ -28,12 +28,9 @@ public class TestCase_12 {
 
 		// Initialize WebDriver.
 		WebDriverManager.chromedriver().setup();
-		ChromeDriver driver = new ChromeDriver();
 
 		// Launch Browser.
-		driver.get("https://www.automationexercise.com/");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		Functions.openBrowser();
 
 		// Click on Products button.
 		driver.findElement(By.xpath("//a[@href='/products']")).click();
@@ -46,7 +43,7 @@ public class TestCase_12 {
 		// Add the product.
 		driver.findElement(By.xpath("//div[@class='productinfo text-center']//child::a[@data-product-id='2']")).click();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.findElement(By.xpath("//button[text()]")).click();
+		driver.findElement(By.xpath("//button[text()='Continue Shopping']")).click();
 
 		// Hover to second item
 		productLocator = driver.findElement(By.xpath("//img[@src='/get_product_picture/1']"));
@@ -55,7 +52,7 @@ public class TestCase_12 {
 		// Add the product.
 		driver.findElement(By.xpath("//div[@class='productinfo text-center']//child::a[@data-product-id='1']")).click();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.findElement(By.xpath("//button[text()]")).click();
+		driver.findElement(By.xpath("//button[text()='Continue Shopping']")).click();
 		
 		// Check the cart.
 		driver.findElement(By.xpath("//a[text()=' Cart']")).click();

@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestCase_10 {
+public class TestCase_10 extends Functions{
 
 	public static void main(String[] args) {
 
@@ -24,16 +24,13 @@ public class TestCase_10 {
 
 		// Initialize WebDriver.
 		WebDriverManager.chromedriver().setup();
-		ChromeDriver driver = new ChromeDriver();
 
 		// Launch Browser.
-		driver.get("https://www.automationexercise.com/");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		Functions.openBrowser();
 		
 		// Scroll down.
 		JavascriptExecutor exec = (JavascriptExecutor) driver;
-		exec.executeScript("window.scrollBy(0,10000)");
+		exec.executeScript("window.scrollBy(0,7500)");
 		
 		// Subscribe.
 		driver.findElement(By.xpath("//input[@id='susbscribe_email']")).sendKeys("Test22333@yopmail.com");

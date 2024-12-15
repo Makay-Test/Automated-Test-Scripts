@@ -7,11 +7,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestCase_13 {
+public class TestCase_13 extends Functions{
 
 	public static void main(String[] args) {
 
-//	Test Case #13 Verify Product quantity in Cart
+//	Test Case #13 - Verify Product quantity in Cart
 //		Test Steps:
 //		1. Launch browser
 //		2. Navigate to url 'http://automationexercise.com'
@@ -25,13 +25,10 @@ public class TestCase_13 {
 
 		// Initialize WebDriver.
 		WebDriverManager.chromedriver().setup();
-		ChromeDriver driver = new ChromeDriver();
 
 		// Launch Browser.
-		driver.get("https://www.automationexercise.com/");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
+		Functions.openBrowser();
+		
 		// Click on Products button.
 		driver.findElement(By.xpath("//a[@href='/products']")).click();
 

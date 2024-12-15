@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestCase_11 {
+public class TestCase_11 extends Functions{
 
 	public static void main(String[] args) {
 
@@ -24,12 +24,9 @@ public class TestCase_11 {
 
 		// Initialize WebDriver.
 		WebDriverManager.chromedriver().setup();
-		ChromeDriver driver = new ChromeDriver();
 
 		// Launch Browser.
-		driver.get("https://www.automationexercise.com/");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		Functions.openBrowser();
 		
 		// Scroll down.
 		driver.findElement(By.xpath("//a[@href='/view_cart']")).click();

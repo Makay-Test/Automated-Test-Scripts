@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestCase_06 {
+public class TestCase_06 extends Functions{
 
 	public static void main(String[] args) {
 
@@ -28,13 +28,11 @@ public class TestCase_06 {
 
 		// Initialize WebDriver
 		WebDriverManager.chromedriver().setup();
-		ChromeDriver driver = new ChromeDriver();
 		String pathHolder = System.getProperty("user.dir");
 
 		// Launch Browser
-		driver.get("https://www.automationexercise.com/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
+		Functions.openBrowser();;
+		
 		// Click on Contact Us
 		driver.findElement(By.xpath("// a[text()=' Contact us']")).click();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
