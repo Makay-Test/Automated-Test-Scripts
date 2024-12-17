@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Regression]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="TestCase(failed)">
+    <classes>
+      <class name="Test_Cases.Test_03_ValidateCart">
+        <methods>
+          <include name="validateCart"/>
+        </methods>
+      </class> <!-- Test_Cases.Test_03_ValidateCart -->
+      <class name="Test_Cases.Test_05_Checkout">
+        <methods>
+          <include name="checkOut"/>
+        </methods>
+      </class> <!-- Test_Cases.Test_05_Checkout -->
+      <class name="Test_Cases.Test_06_Cancel">
+        <methods>
+          <include name="cancelOrder"/>
+        </methods>
+      </class> <!-- Test_Cases.Test_06_Cancel -->
+      <class name="Test_Cases.Test_04_AddMultipleItems">
+        <methods>
+          <include name="allItems"/>
+        </methods>
+      </class> <!-- Test_Cases.Test_04_AddMultipleItems -->
+      <class name="Test_Cases.Test_02_AddItems">
+        <methods>
+          <include name="addItems"/>
+        </methods>
+      </class> <!-- Test_Cases.Test_02_AddItems -->
+    </classes>
+  </test> <!-- TestCase(failed) -->
+</suite> <!-- Failed suite [Regression] -->
