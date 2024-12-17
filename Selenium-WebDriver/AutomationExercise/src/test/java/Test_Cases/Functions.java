@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class Functions {
 
 	// Initialize Webdriver
@@ -13,6 +15,7 @@ public class Functions {
 
 	// Launch Browser.
 	static void openBrowser() {
+		WebDriverManager.chromedriver().setup();
 		driver.get("https://www.automationexercise.com/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

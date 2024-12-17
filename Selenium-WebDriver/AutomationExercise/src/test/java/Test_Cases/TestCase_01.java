@@ -1,13 +1,11 @@
 package Test_Cases;
 
-import java.time.Duration;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestCase_01 extends Functions{
-	
+public class TestCase_01 extends Functions {
+
 	public static void main(String[] args) {
 
 //	Test Case #01 - Register User
@@ -28,9 +26,9 @@ public class TestCase_01 extends Functions{
 //			14. Verify that 'ACCOUNT CREATED!' is visible
 //			15. Click 'Continue' button
 //			16. Verify that 'Logged in as username' is visible
-		
+
 		WebDriverManager.chromedriver().setup();
-		
+
 		// Launch Browser
 		Functions.openBrowser();
 
