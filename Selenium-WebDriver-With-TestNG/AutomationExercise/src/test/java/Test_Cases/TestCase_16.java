@@ -37,7 +37,7 @@ public class TestCase_16 extends Functions {
 		Functions.openBrowser();
 
 		// Login
-		Functions.Login();
+		Functions.Login(false);
 
 		// Adding products to cart
 		// Hover to first item

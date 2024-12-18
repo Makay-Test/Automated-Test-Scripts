@@ -4,31 +4,36 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
+import org.testng.annotations.Test;
 
 public class TestCase_12 extends Functions{
 
-	public static void main(String[] args) {
-
 //	Test Case #12 - Add Products in Cart
-//		Test Steps:
-//		1. Launch browser
-//		2. Navigate to url 'http://automationexercise.com'
-//		3. Verify that home page is visible successfully
-//		4. Click 'Products' button
-//		5. Hover over first product and click 'Add to cart'
-//		6. Click 'Continue Shopping' button
-//		7. Hover over second product and click 'Add to cart'
-//		8. Click 'View Cart' button
-//		9. Verify both products are added to Cart
-//		10. Verify their prices, quantity and total price
+//	Test Steps:
+//	1. Launch browser
+//	2. Navigate to url 'http://automationexercise.com'
+//	3. Verify that home page is visible successfully
+//	4. Click 'Products' button
+//	5. Hover over first product and click 'Add to cart'
+//	6. Click 'Continue Shopping' button
+//	7. Hover over second product and click 'Add to cart'
+//	8. Click 'View Cart' button
+//	9. Verify both products are added to Cart
+//	10. Verify their prices, quantity and total price
 
-		// Initialize WebDriver.
-		WebDriverManager.chromedriver().setup();
+	//#########################################################################################################################	
+	//####### Please take note that some of the validations are inside of the functions/methods.				###############
+	//#######																									###############
+	//#########################################################################################################################
 
+	//###############
+	//### START	#####
+	//###############
+	
+	@Test(priority=1)
+	public static void Add_Products_Cart() {
+		
 		// Launch Browser.
 		Functions.openBrowser();
 
@@ -57,9 +62,28 @@ public class TestCase_12 extends Functions{
 		// Check the cart.
 		driver.findElement(By.xpath("//a[text()=' Cart']")).click();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+		String item1 [] = {
+				"//a[text()='Blue Top']",
+				"//td[@class='cart_price']//p[text()='Rs. 500']",
+				"//tr[@id='product-1']//button[text()='1']",
+				"//td[@class='cart_total']//p[text()='Rs. 500']"};
+		String item2 [] = {
+				"//a[text()='Men Tshirt']",
+				"//td[@class='cart_price']//p[text()='Rs. 400']",
+				"//tr[@id='product-2']//button[text()='1']",
+				"//td[@class='cart_total']//p[text()='Rs. 400']"};
+		
+		for (int i = 0; i < 4; i++) {
+//		VALIDATION POINT:
+//						Verifies both products are added to Cart
+//						Verifies their prices, quantity and total price.
+		validator.expectedElement(item1[i]);
+		validator.expectedElement(item2[i]);
+		}
 		
 		// Close browser.
-		driver.close();
+		//driver.close();
 		
 	}
 

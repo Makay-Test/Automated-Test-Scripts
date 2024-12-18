@@ -1,14 +1,9 @@
 package Test_Cases;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
-public class TestCase_05 extends Functions{
-	public static void main(String[] args) {
+public class TestCase_05 extends Functions {
 
 //	TestCase #05 - Register User with existing email
 //		Test Steps:
@@ -20,20 +15,29 @@ public class TestCase_05 extends Functions{
 //		6. Enter name and already registered email address
 //		7. Click 'Signup' button
 //		8. Verify error 'Email Address already exist!' is visible
+	//#########################################################################################################################	
+	//####### Please take note that some of the validations are inside of the functions/methods.				###############
+	//#######																									###############
+	//#########################################################################################################################
 
-		// Initialize WebDriver
-		WebDriverManager.chromedriver().setup();
-
+	//###############
+	//### START	#####
+	//###############
+	
+	@Test(priority = 1)
+	public static void TestCase05() {
+		
 		// Launch Browser
-		Functions.openBrowser();;
-
-		// Login
-		driver.findElement(By.xpath("//*[text()=' Signup / Login']")).click();
+		Functions.openBrowser();
 
 		// Register as new user
-		driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("Testname");
-		driver.findElement(By.xpath("//input[@data-qa='signup-email']")).sendKeys("Test22333@yopmail.com");
-		driver.findElement(By.xpath("//button[text()='Signup']")).click();
+		driver.findElement(By.xpath("//*[text()=' Signup / Login']")).click();
+		
+//		VALIDATION POINT: Verifies 'New User Signup!' is visible
+		validator.expectedElement("//button[@data-qa='signup-button']");
+		
+// NOTE: Validation item 8 is inside the Function.userSignup method.
+		Functions.userSignUp();
 
 		// Close browser.
 		driver.close();

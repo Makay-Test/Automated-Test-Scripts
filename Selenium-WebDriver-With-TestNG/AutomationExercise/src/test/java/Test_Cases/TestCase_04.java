@@ -3,13 +3,9 @@ package Test_Cases;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
-public class TestCase_04 extends Functions{
-
-	public static void main(String[] args) {
+public class TestCase_04 extends Functions {
 
 //	Test Case #04 - Logout User
 //		Test Steps:
@@ -23,20 +19,34 @@ public class TestCase_04 extends Functions{
 //		8. Verify that 'Logged in as username' is visible
 //		9. Click 'Logout' button
 //		10. Verify that user is navigated to login page
+	
+	//#########################################################################################################################	
+	//####### Please take note that some of the validations are inside of the functions/methods.				###############
+	//#######																									###############
+	//#########################################################################################################################
 
-		// Initialize WebDriver
-		WebDriverManager.chromedriver().setup();
+	//###############
+	//### START	#####
+	//###############
+	
+	
+	@Test(priority = 1)
+	public static void Logout_User() {
 
 		// Launch Browser
 		Functions.openBrowser();
-
-		// Login
-		Functions.Login();
 		
+		// Login
+		Functions.Login(false);
+// 		VALIDATION POINT: Verifies that 'Logged in as username' is visible
+		validator.expectedValue("//a[text()=' Logged in as ']//child::b", "Testname");
+
 		// Logout
 		driver.findElement(By.xpath("//*[@href='/logout']")).click();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		
+// 		VALIDATION POINT: Verifies that user is navigated to login page
+		validator.expectedElement("//*[text()=' Signup / Login']");
+
 		// Close browser.
 		driver.close();
 	}

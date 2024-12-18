@@ -3,13 +3,11 @@ package Test_Cases;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestCase_14 extends Functions{
-
-	public static void main(String[] args) {
 
 //	Test Case #
 //		Test Steps:
@@ -33,9 +31,18 @@ public class TestCase_14 extends Functions{
 //		18. Verify success message 'Your order has been placed successfully!'
 //		19. Click 'Delete Account' button
 //		20. Verify 'ACCOUNT DELETED!' and click 'Continue' button
+	
+	//#########################################################################################################################	
+	//####### Please take note that some of the validations are inside of the functions/methods.				###############
+	//#######																									###############
+	//#########################################################################################################################
 
-		// Initialize WebDriver.
-		WebDriverManager.chromedriver().setup();
+	//###############
+	//### START	#####
+	//###############
+	
+	@Test(priority=1)
+	public static void main(String[] args) {
 
 		// Launch Browser.
 		Functions.openBrowser();

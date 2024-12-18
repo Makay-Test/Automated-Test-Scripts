@@ -1,16 +1,10 @@
 package Test_Cases;
 
-import java.time.Duration;
+import org.testng.annotations.Test;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
-
-public class TestCase_03 extends Functions{
-
-	public static void main(String[] args) {
-
+public class TestCase_03 extends Functions {
+	
+	
 //	Test Case #03 - Login User with incorrect email and password
 //		Test Steps:
 //		1. Launch browser
@@ -21,17 +15,28 @@ public class TestCase_03 extends Functions{
 //		6. Enter incorrect email address and password
 //		7. Click 'login' button
 //		8. Verify error 'Your email or password is incorrect!' is visible
+	
+	//#########################################################################################################################	
+	//####### Please take note that some of the validations are inside of the functions/methods.				###############
+	//#######																									###############
+	//#########################################################################################################################
 
-		// Initialize WebDriver
-		WebDriverManager.chromedriver().setup();
-
+	//###############
+	//### START	#####
+	//###############
+	
+	@Test(priority=1)
+	public static void Login_User_with_incorrect_email_and_password() {
+		
 		// Launch Browser
 		Functions.openBrowser();
 
 		// Login
-		Functions.Login();
-		
-		//Close browser.
+		Functions.Login(true);
+//		VALIDATION POINT: Verifies error 'Your email or password is incorrect!' is visible
+		validator.expectedElement("//p[text()='Your email or password is incorrect!']");
+
+		// Close browser.
 		driver.close();
 	}
 
