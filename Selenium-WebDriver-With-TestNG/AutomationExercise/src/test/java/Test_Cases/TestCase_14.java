@@ -5,8 +5,6 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 public class TestCase_14 extends Functions{
 
 //	Test Case #

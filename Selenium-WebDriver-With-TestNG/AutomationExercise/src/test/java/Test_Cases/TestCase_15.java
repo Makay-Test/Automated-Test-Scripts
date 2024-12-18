@@ -7,26 +7,27 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-public class TestCase_16 extends Functions {
+public class TestCase_15 extends Functions {
 
-//	Test Case #
-//		Test Steps: Login before Checkout
+//	Test Case # Register_before_Checkout
+//		Test Steps:
 //		1. Launch browser
 //		2. Navigate to url 'http://automationexercise.com'
 //		3. Verify that home page is visible successfully
 //		4. Click 'Signup / Login' button
-//		5. Fill email, password and click 'Login' button
-//		6. Verify 'Logged in as username' at top
-//		7. Add products to cart
-//		8. Click 'Cart' button
-//		9. Verify that cart page is displayed
-//		10. Click Proceed To Checkout
-//		11. Verify Address Details and Review Your Order
-//		12. Enter description in comment text area and click 'Place Order'
-//		13. Enter payment details: Name on Card, Card Number, CVC, Expiration date
-//		14. Click 'Pay and Confirm Order' button
-//		15. Verify success message 'Your order has been placed successfully!'
-
+//		5. Fill all details in Signup and create account
+//		6. Verify 'ACCOUNT CREATED!' and click 'Continue' button
+//		7. Verify ' Logged in as username' at top
+//		8. Add products to cart
+//		9. Click 'Cart' button
+//		10. Verify that cart page is displayed
+//		11. Click Proceed To Checkout
+//		12. Verify Address Details and Review Your Order
+//		13. Enter description in comment text area and click 'Place Order'
+//		14. Enter payment details: Name on Card, Card Number, CVC, Expiration date
+//		15. Click 'Pay and Confirm Order' button
+//		16. Verify success message 'Your order has been placed successfully!'
+	
 	//#########################################################################################################################	
 	//####### Please take note that some of the validations are inside of the functions/methods.				###############
 	//#######																									###############
@@ -37,34 +38,40 @@ public class TestCase_16 extends Functions {
 	//###############
 	
 	@Test(priority=1)
-	public static void Login_before_Checkout() {
+	public static void Register_before_Checkout() {
 
 		// Launch Browser.
 		Functions.openBrowser();
 
-		// Login
-		Functions.Login(false);
+		// Proceed to Sign up
+		driver.findElement(By.xpath("//a[@href='/login']")).click();
+
+		// Sign up new user
+		Functions.userSignUp();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		// Adding products to cart
-		// Hover to first item
 		Actions action = new Actions(driver);
+		
 		WebElement productLocator = driver.findElement(By.xpath("//img[@src='/get_product_picture/2']"));
 		action.moveToElement(productLocator).perform();
 		driver.findElement(By.xpath("//div[@class='productinfo text-center']//child::a[@data-product-id='2']")).click();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.findElement(By.xpath("//button[text()='Continue Shopping']")).click();
+		
 		productLocator = driver.findElement(By.xpath("//img[@src='/get_product_picture/3']"));
 		action.moveToElement(productLocator).perform();
 		driver.findElement(By.xpath("//div[@class='productinfo text-center']//child::a[@data-product-id='3']")).click();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.findElement(By.xpath("//button[text()='Continue Shopping']")).click();
+		
 		productLocator = driver.findElement(By.xpath("//img[@src='/get_product_picture/4']"));
 		action.moveToElement(productLocator).perform();
 		driver.findElement(By.xpath("//div[@class='productinfo text-center']//child::a[@data-product-id='4']")).click();
 		driver.findElement(By.xpath("//button[text()='Continue Shopping']")).click();
 		driver.findElement(By.xpath("//a[text()=' Cart']")).click();
-
-		// Checkout
+		
+		//Checkout
 		Functions.checkOut();
 		driver.findElement(By.xpath("//a[text()='Continue']")).click();
 
