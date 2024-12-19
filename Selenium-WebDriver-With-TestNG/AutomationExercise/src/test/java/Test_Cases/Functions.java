@@ -24,12 +24,12 @@ public class Functions {
 		
 		// VALIDATION POINT:
 		//			Verifies that home page is visible.
-		validator.expectedElement("//div[@class='carousel-inner']");
+		validator.expectedElement("//h2[text()='Features Items']",true);
 	}
 
 	// ========================================== Login ===================================================================
 	static void Login(Boolean negativeTest) {
-		String testEmailArray [] = {"Testacc123@yopmail.com","Testaccincorrect@yopmail.com"};
+		String testEmailArray [] = {"Testacc127@yopmail.com","Testaccincorrect@yopmail.com"};
 		String testPassArray [] = {"Testpass","passincorrect"};
 		String testEmail;
 		String testPass;
@@ -45,24 +45,23 @@ public class Functions {
 		
 		//VALIDATION POINT: 
 		//			Verifies that 'Login to your account' is visible.
-		validator.expectedElement("//h2[text()='Login to your account']");
+		validator.expectedElement("//h2[text()='Login to your account']",true);
 		
 		driver.findElement(By.xpath("//form[@action='/login']//child::input[2]")).sendKeys(testEmail);
 		driver.findElement(By.xpath("//form[@action='/login']//child::input[3]")).sendKeys(testPass);
 		driver.findElement(By.xpath("//form[@action='/login']//child::button")).click();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
 	}
 
 	// =================================== User Sign up functionality =====================================================
-	public static void userSignUp() {
+	public static void userSignUp(){
 		
 		// Data
 		String testName[] = {"Testname"};
 		String testEmail [] = {"Testacc127@yopmail.com","Testacc123@yopmail.com"};
 		
 		driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys(testName[0]);
-		driver.findElement(By.xpath("//input[@data-qa='signup-email']")).sendKeys(testEmail[1]);
+		driver.findElement(By.xpath("//input[@data-qa='signup-email']")).sendKeys(testEmail[0]);
 		driver.findElement(By.xpath("//button[text()='Signup']")).click();
 
 		// NOTE: I placed a checker if the account is existing or not.
@@ -72,13 +71,13 @@ public class Functions {
 			
 			// VALIDATION POINT:
 			//			Verifies error 'Email Address already exist!' is visible.
-			validator.expectedElement("//p[text()='Email Address already exist!']");
+			validator.expectedElement("//p[text()='Email Address already exist!']",true);
 			return;
 		}
 		else {
 			// VALIDATION POINT: 
 			//			Verifies that 'ENTER ACCOUNT INFORMATION' is visible
-			validator.expectedElement("//b[text()='Enter Account Information']");
+			validator.expectedElement("//b[text()='Enter Account Information']",true);
 
 			//NOTE: Here, I have stored the values of the inputs fields with its corresponding xpaths.
 			String ClickXpathHolder[] = {
@@ -118,9 +117,11 @@ public class Functions {
 				driver.findElement(By.xpath(TypeXpathHolder[b])).sendKeys(TypeValueHolder[b]);
 			}
 			driver.findElement(By.xpath("//button[text()='Create Account']")).click();
+			
 			// VALIDATION POINT: 
 			//			Verifies that 'ACCOUNT CREATED!' is visible
-			validator.expectedElement("//b[text()='Account Created!']");
+			validator.expectedElement("//b[text()='Account Created!']",true);
+			
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
 		}
 		
@@ -144,6 +145,21 @@ public class Functions {
 				"//input[@name='expiry_year']"
 		};
 		driver.findElement(By.xpath("//div[@class='col-sm-6']//child::a")).click();
+		
+		// VALIDATION POINT: 
+		//			Verifies Address Details and Review Your Order
+			String TypeXpathHolder[] = {
+					"//ul[@id='address_delivery']//child::li[1]",
+					"//ul[@id='address_delivery']//child::li[2]",
+					"//ul[@id='address_delivery']//child::li[3]",
+					"//ul[@id='address_delivery']//child::li[4]",
+					"//ul[@id='address_delivery']//child::li[5]",
+					"//ul[@id='address_delivery']//child::li[6]",
+					"//ul[@id='address_delivery']//child::li[7]"};
+			for (int i = 0; i < 7; i++) {
+				validator.expectedElement(TypeXpathHolder[0],true);
+			};
+		
 		driver.findElement(By.xpath("//textarea")).sendKeys("This is a test.");
 		driver.findElement(By.xpath("//a[@href='/payment']")).click();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -152,9 +168,14 @@ public class Functions {
 		for (int i = 0; i < 5 ; i++ ) {
 			driver.findElement(By.xpath(checkOutXpath[i])).sendKeys(checkOutValues[i]);
 		}
-	
+
 		driver.findElement(By.xpath("//button[@id='submit']")).click();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		//driver.findElement(By.xpath("//a[text()='Continue']")).click();
+
+		// VALIDATION POINT: 
+		//			Verifies success message 'Your order has been placed successfully!'
+		validator.expectedElement("//p[text()='Congratulations! Your order has been confirmed!']",true);
 	}
+	
+	
 }

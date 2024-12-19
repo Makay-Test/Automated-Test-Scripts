@@ -3,6 +3,7 @@ package Test_Cases;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class TestCase_09 extends Functions{
@@ -27,6 +28,13 @@ public class TestCase_09 extends Functions{
 	//### START	#####
 	//###############
 	
+	@AfterTest
+	public void endTest(){
+		// Goes to Home page and close the browser
+		driver.findElement(By.xpath("//a[text()=' Home']")).click();
+		// Close browser
+		driver.close();}
+	
 	@Test(priority=1)
 	public static void Search_Product() {
 		
@@ -34,9 +42,10 @@ public class TestCase_09 extends Functions{
 		Functions.openBrowser();
 		// Click on Products button.
 		driver.findElement(By.xpath("//a[@href='/products']")).click();
+		
 		// VALIDATION POINT:
 		//			Verifies user is navigated to ALL PRODUCTS page successfully
-		validator.expectedElement("//h2[text()='All Products']");
+		validator.expectedElement("//h2[text()='All Products']",true);
 
 		// Input keywords to search.
 		driver.findElement(By.xpath("//input[@id='search_product']")).sendKeys("Tshirt");
@@ -55,7 +64,7 @@ public class TestCase_09 extends Functions{
 		
 			// VALIDATION POINT:
 			//			Verifies user is able to see items related to searched item.
-		validator.expectedElement(allSearchedProducts[i]);}
+		validator.expectedElement(allSearchedProducts[i],true);}
 		
 		// Close browser.
 		driver.close();

@@ -39,10 +39,13 @@ public class TestCase_01 extends Functions {
 //###############
 	
 	@AfterTest
-	public static void deleteUser() {
+	public void deleteUser() {
 	driver.findElement(By.xpath("//a[@href='/delete_account']")).click();
 	driver.findElement(By.xpath("//a[@data-qa='continue-button']")).click();
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	
+	// Close browser.
+	driver.close();
 	}
 	@Test
 	public static void Register_User() {
@@ -53,13 +56,13 @@ public class TestCase_01 extends Functions {
 		driver.findElement(By.xpath("//*[text()=' Signup / Login']")).click();
 		
 		// VALIDATION POINT: Verifies 'New User Signup!' is visible
-		validator.expectedElement("//button[@data-qa='signup-button']");
+		validator.expectedElement("//button[@data-qa='signup-button']",true);
 		
 		// NOTE: Validation item 8 and 14 are inside the Function.userSignup method.
 		Functions.userSignUp();
 		driver.findElement(By.xpath("//a[text()='Continue']")).click();
 
 		// VALIDATION POINT: Verifies that home page is visible.
-		validator.expectedElement("//div[@class='carousel-inner']");
+		validator.expectedElement("//div[@class='carousel-inner']",true);
 	}
 }

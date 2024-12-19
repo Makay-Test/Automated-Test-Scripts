@@ -4,10 +4,11 @@ import java.time.Duration;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-public class TestCase_06 extends Functions{
-	
+public class TestCase_06 extends Functions {
+
 //	TestCase #06 - Contact Us Form
 //		Test Steps:
 //		1. Launch browser
@@ -21,23 +22,31 @@ public class TestCase_06 extends Functions{
 //		9. Click OK button
 //		10. Verify success message 'Success! Your details have been submitted successfully.' is visible
 //		11. Click 'Home' button and verify that landed to home page successfully
-		
-		//#########################################################################################################################	
-		//####### Please take note that some of the validations are inside of the functions/methods.				###############
-		//#######																									###############
-		//#########################################################################################################################
 
-		//###############
-		//### START	#####
-		//###############
+	// #########################################################################################################################
+	// ####### Please take note that some of the validations are inside of the functions/methods.
+	// #########################################################################################################################
 
-		@Test(priority=1)
-		public static void Cotanc_Us_From() {
+	// ###############
+	// ### START #####
+	// ###############
+
+	@AfterTest
+	public void endTest() {
+		// Goes to Home page and close the browser
+		driver.findElement(By.xpath("//a[text()=' Home']")).click();
+		// Close browser
+		driver.close();
+	}
+
+	@Test(priority = 1)
+	public static void Cotanc_Us_From() {
 		String pathHolder = System.getProperty("user.dir");
 
 		// Launch Browser
-		Functions.openBrowser();;
-		
+		Functions.openBrowser();
+		;
+
 		// Click on Contact Us
 		driver.findElement(By.xpath("// a[text()=' Contact us']")).click();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -53,11 +62,12 @@ public class TestCase_06 extends Functions{
 		driver.findElement(By.xpath("//form[@id='contact-us-form']//child::div[5]/input"))
 				.sendKeys(pathHolder + "\\src\\test\\resources\\Test_file.txt");
 		driver.findElement(By.xpath("//form[@id='contact-us-form']//child::div[6]/input")).click();
-		
+
 		// VALIDATION POINT:
-		//			Verifies success message 'Success! Your details have been submitted successfully.' is visible.
-		validator.expectedElement("//div[text()='Success! Your details have been submitted successfully.']");
-		
+		// Verifies success message 'Success! Your details have been submitted
+		// successfully.' is visible.
+		validator.expectedElement("//div[text()='Success! Your details have been submitted successfully.']", true);
+
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
 		driver.findElement(By.xpath("//a[@class]")).click();

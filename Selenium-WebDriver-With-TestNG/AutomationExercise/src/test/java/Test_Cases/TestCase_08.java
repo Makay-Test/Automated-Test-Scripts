@@ -2,6 +2,7 @@ package Test_Cases;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -29,6 +30,13 @@ public class TestCase_08 extends Functions{
 	//### START	#####
 	//###############
 	
+	@AfterTest
+	public void endTest(){
+		// Goes to Home page and close the browser
+		driver.findElement(By.xpath("//a[text()=' Home']")).click();
+		// Close browser
+		driver.close();}
+	
 	@Test(priority=1)
 	public static void Verify_All_Products_Details_Page() {
 
@@ -40,6 +48,11 @@ public class TestCase_08 extends Functions{
 
 		// Click on Products button.
 		driver.findElement(By.xpath("//a[@href='/products']")).click();
+		
+		// VALIDATION POINT:
+		//			Verifies user is navigated to ALL PRODUCTS page successfully
+		validator.expectedElement("//h2[text()='All Products']",true);
+		
 		driver.findElement(By.xpath("//a[@href='/product_details/1']")).click();
 		
 		// Scroll down.
@@ -52,7 +65,7 @@ public class TestCase_08 extends Functions{
 				"//h2[text()='Blue Top']","//p[text()='Category: Women > Tops']","//span[text()='Rs. 500']",
 				"//p[text()=' In Stock']","//p[text()=' New']","//p[text()=' Polo']"};
 		for (int i = 0; i < 6; i++) {
-			validator.expectedElement(xpathHolder[i]);
+			validator.expectedElement(xpathHolder[i],true);
 		}
 		
 		// Close browser.

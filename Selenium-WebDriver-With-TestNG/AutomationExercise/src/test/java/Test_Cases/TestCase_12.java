@@ -32,7 +32,7 @@ public class TestCase_12 extends Functions{
 	//###############
 	
 	@Test(priority=1)
-	public static void Add_Products_Cart() {
+	public void Add_Products_Cart() {
 		
 		// Launch Browser.
 		Functions.openBrowser();
@@ -78,8 +78,8 @@ public class TestCase_12 extends Functions{
 			// VALIDATION POINT:
 			//			Verifies both products are added to Cart
 			//			Verifies their prices, quantity and total price.
-		validator.expectedElement(item1[i]);
-		validator.expectedElement(item2[i]);
+		validator.expectedElement(item1[i],true);
+		validator.expectedElement(item2[i],true);
 		}
 		
 		// Close browser.

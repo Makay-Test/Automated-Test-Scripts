@@ -3,6 +3,7 @@ package Test_Cases;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 
@@ -29,6 +30,13 @@ public class TestCase_13 extends Functions{
 	//### START	#####
 	//###############
 	
+	@AfterTest
+	public void endTest(){
+		// Goes to Home page and close the browser
+		driver.findElement(By.xpath("//a[text()=' Home']")).click();
+		// Close browser
+		driver.close();}
+	
 	@Test(priority=1)
 	public static void Verify_Product_Quantity_in_Cart() {
 
@@ -51,7 +59,7 @@ public class TestCase_13 extends Functions{
 						"//p[text()=' New']",
 						"//p[text()=' H&M']"};
 		for (int i = 0; i < 6; i++) {
-			validator.expectedElement(xpathHolder[i]);}
+			validator.expectedElement(xpathHolder[i],true);}
 		
 		driver.findElement(By.xpath("//input[@id='quantity']")).clear();
 		driver.findElement(By.xpath("//input[@id='quantity']")).sendKeys("4");
@@ -64,7 +72,7 @@ public class TestCase_13 extends Functions{
 		
 		// VALIDATION POINT:
 		//				Verifies their quantity.
-		validator.expectedElement("//tr[@id='product-2']//button[text()='4']");
+		validator.expectedElement("//tr[@id='product-2']//button[text()='4']",true);
 
 		// Close browser.
 		driver.close();

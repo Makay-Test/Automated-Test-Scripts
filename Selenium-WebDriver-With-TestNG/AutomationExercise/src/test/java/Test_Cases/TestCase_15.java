@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class TestCase_15 extends Functions {
@@ -37,6 +38,15 @@ public class TestCase_15 extends Functions {
 	//### START	#####
 	//###############
 	
+	@AfterTest
+	public void deleteUser() {
+	driver.findElement(By.xpath("//a[@href='/delete_account']")).click();
+	driver.findElement(By.xpath("//a[@data-qa='continue-button']")).click();
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	
+	// Close browser
+	driver.close();
+	}
 	@Test(priority=1)
 	public static void Register_before_Checkout() {
 
@@ -48,8 +58,12 @@ public class TestCase_15 extends Functions {
 
 		// Sign up new user
 		Functions.userSignUp();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.findElement(By.xpath("//a[text()='Continue']")).click();
 
+		// VALIDATION POINT: 
+		//			Verifies that 'Logged in as username' is visible
+		validator.expectedValue("//a[text()=' Logged in as ']//child::b", "Testname");
+		
 		// Adding products to cart
 		Actions action = new Actions(driver);
 		
@@ -69,13 +83,16 @@ public class TestCase_15 extends Functions {
 		action.moveToElement(productLocator).perform();
 		driver.findElement(By.xpath("//div[@class='productinfo text-center']//child::a[@data-product-id='4']")).click();
 		driver.findElement(By.xpath("//button[text()='Continue Shopping']")).click();
-		driver.findElement(By.xpath("//a[text()=' Cart']")).click();
+		
+		// Click on cart
+		driver.findElement(By.xpath("//ul//child::a[@href='/view_cart']")).click();
+		
+		// VALIDATION POINT:
+		//			Verifies that cart page is displayed
+		validator.expectedElement("//li[text()='Shopping Cart']",true);
 		
 		//Checkout
 		Functions.checkOut();
 		driver.findElement(By.xpath("//a[text()='Continue']")).click();
-
-		// Close browser
-		driver.close();
 	}
 }

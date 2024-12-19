@@ -1,5 +1,7 @@
 package Test_Cases;
 
+import org.openqa.selenium.By;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class TestCase_02 extends Functions {
@@ -23,6 +25,14 @@ public class TestCase_02 extends Functions {
 	//###############
 	//### START	#####
 	//###############
+	
+	@AfterTest
+	public void endTest(){
+		// Goes to Home page and close the browser
+		driver.findElement(By.xpath("//a[text()=' Home']")).click();
+		// Close browser
+		driver.close();}
+	
 	@Test(priority=1)
 	public static void Login_User_with_correct_email_and_password() {
 		// Launch Browser
@@ -31,7 +41,8 @@ public class TestCase_02 extends Functions {
 		// Login
 		Functions.Login(false);
 		
-		//VALIDATION POINT: Verifies that 'Logged in as username' is visible
+		// VALIDATION POINT: 
+		//			Verifies that 'Logged in as username' is visible
 		validator.expectedValue("//a[text()=' Logged in as ']//child::b", "Testname");
 
 		// Close browser.

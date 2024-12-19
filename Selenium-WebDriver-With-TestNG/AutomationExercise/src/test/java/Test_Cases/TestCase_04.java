@@ -31,7 +31,7 @@ public class TestCase_04 extends Functions {
 	
 	
 	@Test(priority = 1)
-	public static void Logout_User() {
+	public void Logout_User() {
 
 		// Launch Browser
 		Functions.openBrowser();
@@ -47,7 +47,7 @@ public class TestCase_04 extends Functions {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 		// VALIDATION POINT: Verifies that user is navigated to login page
-		validator.expectedElement("//*[text()=' Signup / Login']");
+		validator.expectedElement("//*[text()=' Signup / Login']",true);
 
 		// Close browser.
 		driver.close();
