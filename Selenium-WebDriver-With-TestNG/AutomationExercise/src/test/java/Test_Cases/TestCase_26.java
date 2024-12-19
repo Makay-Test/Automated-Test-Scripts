@@ -2,6 +2,7 @@ package Test_Cases;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class TestCase_26 extends Functions {
@@ -24,6 +25,14 @@ public class TestCase_26 extends Functions {
 	//###############
 	//### START	#####
 	//###############
+	
+	@AfterTest
+	public void endTest(){
+		// Goes to Home page and close the browser
+		driver.findElement(By.xpath("//a[text()=' Home']")).click();
+		// Close browser
+		driver.close();}
+	
 	@Test(priority=1)
 	public static void Scroll_Up_without_Buttton() {
 

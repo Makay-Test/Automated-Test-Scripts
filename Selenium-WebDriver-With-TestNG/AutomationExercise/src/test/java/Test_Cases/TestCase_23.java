@@ -33,7 +33,7 @@ public class TestCase_23 extends Functions{
 	// ###############
 	
 	@AfterTest
-	public static void endTest(){
+	public void endTest(){
 		// Goes to Home page and close the browser
 		driver.findElement(By.xpath("//a[text()=' Home']")).click();
 		// Close browser
