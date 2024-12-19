@@ -33,7 +33,8 @@ public class TestCase_03 extends Functions {
 
 		// Login
 		Functions.Login(true);
-//		VALIDATION POINT: Verifies error 'Your email or password is incorrect!' is visible
+		
+		// VALIDATION POINT: Verifies error 'Your email or password is incorrect!' is visible
 		validator.expectedElement("//p[text()='Your email or password is incorrect!']");
 
 		// Close browser.

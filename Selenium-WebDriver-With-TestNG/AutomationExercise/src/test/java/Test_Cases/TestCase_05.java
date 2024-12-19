@@ -33,10 +33,10 @@ public class TestCase_05 extends Functions {
 		// Register as new user
 		driver.findElement(By.xpath("//*[text()=' Signup / Login']")).click();
 		
-//		VALIDATION POINT: Verifies 'New User Signup!' is visible
+		// VALIDATION POINT: Verifies 'New User Signup!' is visible
 		validator.expectedElement("//button[@data-qa='signup-button']");
 		
-// NOTE: Validation item 8 is inside the Function.userSignup method.
+		// NOTE: Validation item 8 is inside the Function.userSignup method.
 		Functions.userSignUp();
 
 		// Close browser.

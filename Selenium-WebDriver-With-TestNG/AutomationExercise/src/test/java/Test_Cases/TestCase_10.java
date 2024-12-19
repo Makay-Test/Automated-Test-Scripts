@@ -37,15 +37,15 @@ public class TestCase_10 extends Functions{
 		exec.executeScript("window.scrollBy(0,7500)");
 		
 		// Subscribe.
-//		VALIDATION POINT:
-//						Verifies text 'SUBSCRIPTION'
+		// VALIDATION POINT:
+		//			Verifies text 'SUBSCRIPTION'
 		validator.expectedElement("//h2[text()='Subscription']");
 		
 		driver.findElement(By.xpath("//input[@id='susbscribe_email']")).sendKeys("Test22333@yopmail.com");
 		driver.findElement(By.xpath("//button[@id='subscribe']")).click();
 		
-//		VALIDATION POINT:
-//						Verifies success message 'You have been successfully subscribed!' is visible
+		// VALIDATION POINT:
+		//			Verifies success message 'You have been successfully subscribed!' is visible
 		validator.expectedElement("//div[text()='You have been successfully subscribed!']");
 
 		// Close browser.

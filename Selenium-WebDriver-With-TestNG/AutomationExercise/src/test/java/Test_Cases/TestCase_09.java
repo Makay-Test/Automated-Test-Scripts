@@ -34,8 +34,8 @@ public class TestCase_09 extends Functions{
 		Functions.openBrowser();
 		// Click on Products button.
 		driver.findElement(By.xpath("//a[@href='/products']")).click();
-//		VALIDATION POINT:
-//						Verifies user is navigated to ALL PRODUCTS page successfully
+		// VALIDATION POINT:
+		//			Verifies user is navigated to ALL PRODUCTS page successfully
 		validator.expectedElement("//h2[text()='All Products']");
 
 		// Input keywords to search.
@@ -53,8 +53,8 @@ public class TestCase_09 extends Functions{
 		
 		for (int i = 0; i < 6; i++) {
 		
-//		VALIDATION POINT:
-//						Verifies user is able to see items related to searched item.
+			// VALIDATION POINT:
+			//			Verifies user is able to see items related to searched item.
 		validator.expectedElement(allSearchedProducts[i]);}
 		
 		// Close browser.

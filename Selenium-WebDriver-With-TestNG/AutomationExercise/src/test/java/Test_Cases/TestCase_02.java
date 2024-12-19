@@ -15,10 +15,10 @@ public class TestCase_02 extends Functions {
 //		7. Click 'login' button
 //		8. Verify that 'Logged in as username' is visible
 	
-	//#########################################################################################################################	
-	//####### Please take note that some of the validations are inside of the functions/methods.				###############
-	//#######																									###############
-	//#########################################################################################################################
+	//######################################################################################################################	
+	//####### Please take note that some of the validations are inside of the functions/methods.				############
+	//#######																									############
+	//######################################################################################################################
 
 	//###############
 	//### START	#####
@@ -30,7 +30,8 @@ public class TestCase_02 extends Functions {
 
 		// Login
 		Functions.Login(false);
-// 		VALIDATION POINT: Verifies that 'Logged in as username' is visible
+		
+		//VALIDATION POINT: Verifies that 'Logged in as username' is visible
 		validator.expectedValue("//a[text()=' Logged in as ']//child::b", "Testname");
 
 		// Close browser.

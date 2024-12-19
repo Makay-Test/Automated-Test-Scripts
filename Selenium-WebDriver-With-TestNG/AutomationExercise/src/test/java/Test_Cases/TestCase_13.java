@@ -5,7 +5,6 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestCase_13 extends Functions{
 
@@ -42,8 +41,8 @@ public class TestCase_13 extends Functions{
 		// View the product.
 		driver.findElement(By.xpath("//a[@href='/product_details/2']")).click();
 		
-// 		VALIDATION POINT:
-//		Verifies that detail is visible: product name, category, price, availability, condition, brand.
+		// VALIDATION POINT:
+		//			Verifies that detail is visible: product name, category, price, availability, condition, brand.
 		String xpathHolder [] = {
 						"//h2[text()='Men Tshirt']",
 						"//p[text()='Category: Men > Tshirts']",
@@ -63,8 +62,8 @@ public class TestCase_13 extends Functions{
 		driver.findElement(By.xpath("//a[text()=' Cart']")).click();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
-//		VALIDATION POINT:
-//						Verifies their quantity.
+		// VALIDATION POINT:
+		//				Verifies their quantity.
 		validator.expectedElement("//tr[@id='product-2']//button[text()='4']");
 
 		// Close browser.

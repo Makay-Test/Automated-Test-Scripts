@@ -28,8 +28,8 @@ public class TestCase_07 extends Functions{
 		// Click on Test Cases button.
 		driver.findElement(By.xpath("//a[@class='test_cases_list']")).click();
 		
-//		VALIDATION POINT:
-//						Verifies user is navigated to test cases page successfully.
+		// VALIDATION POINT:
+		//			Verifies user is navigated to test cases page successfully.
 		validator.expectedElement("//b[text()='Test Cases']");
 		
 		// Close browser.

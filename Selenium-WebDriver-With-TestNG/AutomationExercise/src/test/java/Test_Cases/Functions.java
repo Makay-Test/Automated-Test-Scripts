@@ -22,8 +22,8 @@ public class Functions {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
-//		VALIDATION POINT:
-//						Verifies that home page is visible.
+		// VALIDATION POINT:
+		//			Verifies that home page is visible.
 		validator.expectedElement("//div[@class='carousel-inner']");
 	}
 
@@ -43,8 +43,8 @@ public class Functions {
 		
 		driver.findElement(By.xpath("//*[text()=' Signup / Login']")).click();
 		
-//		VALIDATION POINT: 
-//						Verifies that 'Login to your account' is visible.
+		//VALIDATION POINT: 
+		//			Verifies that 'Login to your account' is visible.
 		validator.expectedElement("//h2[text()='Login to your account']");
 		
 		driver.findElement(By.xpath("//form[@action='/login']//child::input[2]")).sendKeys(testEmail);
@@ -65,22 +65,22 @@ public class Functions {
 		driver.findElement(By.xpath("//input[@data-qa='signup-email']")).sendKeys(testEmail[1]);
 		driver.findElement(By.xpath("//button[text()='Signup']")).click();
 
-// NOTE: I placed a checker if the account is existing or not.
+		// NOTE: I placed a checker if the account is existing or not.
 		List<WebElement> existingAccChecker = driver.findElements(By.xpath("//p[text()='Email Address already exist!']"));
 		
 		if (existingAccChecker.size()>0) {
 			
-//		VALIDATION POINT:
-//						Verifies error 'Email Address already exist!' is visible.
+			// VALIDATION POINT:
+			//			Verifies error 'Email Address already exist!' is visible.
 			validator.expectedElement("//p[text()='Email Address already exist!']");
 			return;
 		}
 		else {
-//		VALIDATION POINT: 
-//						Verifies that 'ENTER ACCOUNT INFORMATION' is visible
+			// VALIDATION POINT: 
+			//			Verifies that 'ENTER ACCOUNT INFORMATION' is visible
 			validator.expectedElement("//b[text()='Enter Account Information']");
 
-//NOTE: Here, I have stored the values of the inputs fields with its corresponding xpaths.
+			//NOTE: Here, I have stored the values of the inputs fields with its corresponding xpaths.
 			String ClickXpathHolder[] = {
 					"//input[@id='id_gender1']",
 					"//option[text()='28']",
@@ -110,7 +110,7 @@ public class Functions {
 					"112233",
 					"2104104433" };
 
-	//NOTE: I will loop the created array here.
+			//NOTE: I will loop the created array here.
 			for (int a = 0; a < 7; a++) {
 				driver.findElement(By.xpath(ClickXpathHolder[a])).click();
 			}
@@ -118,8 +118,8 @@ public class Functions {
 				driver.findElement(By.xpath(TypeXpathHolder[b])).sendKeys(TypeValueHolder[b]);
 			}
 			driver.findElement(By.xpath("//button[text()='Create Account']")).click();
-//			VALIDATION POINT: 
-//							Verifies that 'ACCOUNT CREATED!' is visible
+			// VALIDATION POINT: 
+			//			Verifies that 'ACCOUNT CREATED!' is visible
 			validator.expectedElement("//b[text()='Account Created!']");
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
 		}
@@ -128,7 +128,7 @@ public class Functions {
 
 	// ========================================  Checkout ==============================================================
 	public static void checkOut() {
-//NOTE: The same here, I have stored the values of the inputs fields with its corresponding xpaths.
+		//NOTE: The same here, I have stored the values of the inputs fields with its corresponding xpaths.
 		String checkOutValues[] = {
 				"Test Card",
 				"1122334455",

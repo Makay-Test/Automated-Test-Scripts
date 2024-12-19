@@ -54,9 +54,10 @@ public class TestCase_06 extends Functions{
 				.sendKeys(pathHolder + "\\src\\test\\resources\\Test_file.txt");
 		driver.findElement(By.xpath("//form[@id='contact-us-form']//child::div[6]/input")).click();
 		
-//		VALIDATION POINT:
-//						Verifies success message 'Success! Your details have been submitted successfully.' is visible.
+		// VALIDATION POINT:
+		//			Verifies success message 'Success! Your details have been submitted successfully.' is visible.
 		validator.expectedElement("//div[text()='Success! Your details have been submitted successfully.']");
+		
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
 		driver.findElement(By.xpath("//a[@class]")).click();

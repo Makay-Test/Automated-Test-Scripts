@@ -46,8 +46,8 @@ public class TestCase_08 extends Functions{
 		JavascriptExecutor exec = (JavascriptExecutor) driver;
 		exec.executeScript("window.scrollBy(0,1000)");
 		
-// 		VALIDATION POINT:
-//						Verifies that detail is visible: product name, category, price, availability, condition, brand.
+		// VALIDATION POINT:
+		//			Verifies that detail is visible: product name, category, price, availability, condition, brand.
 		String xpathHolder [] = {
 				"//h2[text()='Blue Top']","//p[text()='Category: Women > Tops']","//span[text()='Rs. 500']",
 				"//p[text()=' In Stock']","//p[text()=' New']","//p[text()=' Polo']"};

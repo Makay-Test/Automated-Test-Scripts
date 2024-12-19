@@ -75,15 +75,15 @@ public class TestCase_12 extends Functions{
 				"//td[@class='cart_total']//p[text()='Rs. 400']"};
 		
 		for (int i = 0; i < 4; i++) {
-//		VALIDATION POINT:
-//						Verifies both products are added to Cart
-//						Verifies their prices, quantity and total price.
+			// VALIDATION POINT:
+			//			Verifies both products are added to Cart
+			//			Verifies their prices, quantity and total price.
 		validator.expectedElement(item1[i]);
 		validator.expectedElement(item2[i]);
 		}
 		
 		// Close browser.
-		//driver.close();
+		driver.close();
 		
 	}
 

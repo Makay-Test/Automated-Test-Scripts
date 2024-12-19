@@ -38,13 +38,15 @@ public class TestCase_04 extends Functions {
 		
 		// Login
 		Functions.Login(false);
-// 		VALIDATION POINT: Verifies that 'Logged in as username' is visible
+		
+		// VALIDATION POINT: Verifies that 'Logged in as username' is visible
 		validator.expectedValue("//a[text()=' Logged in as ']//child::b", "Testname");
 
 		// Logout
 		driver.findElement(By.xpath("//*[@href='/logout']")).click();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-// 		VALIDATION POINT: Verifies that user is navigated to login page
+		
+		// VALIDATION POINT: Verifies that user is navigated to login page
 		validator.expectedElement("//*[text()=' Signup / Login']");
 
 		// Close browser.
