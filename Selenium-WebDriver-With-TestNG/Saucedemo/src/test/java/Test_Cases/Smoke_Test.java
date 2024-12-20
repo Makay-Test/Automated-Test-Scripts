@@ -30,7 +30,7 @@ public class Smoke_Test extends Functions {
 //	3. Click Login button.
 //	4. Validate user is able to login and proceed to next page.
 	
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1, enabled = true)
 	public void validateLogin() {
 		
 		// VALIDATION POINT:
@@ -47,7 +47,7 @@ public class Smoke_Test extends Functions {
 //	5. Validate able to see available items.
 //	6. Add items.
 //	7. Validate "Add to cart" button will turn in to "Remove" button after click.
-	@Test(priority = 2,enabled = false)
+	@Test(priority = 2,enabled = true)
 	public void addItems() {
 		
 		// VALIDATION POINT:
@@ -75,7 +75,7 @@ public class Smoke_Test extends Functions {
 //	8. Click on Cart icon.
 //	9. Validate selected items are present on the cart.
 	
-	@Test(priority=3, enabled = false)
+	@Test(priority=3, enabled = true)
 	public static void validateCart() {
 		
 		// VALIDATION POINT:
@@ -113,7 +113,7 @@ public class Smoke_Test extends Functions {
 //	8. Click on Cart icon.
 //	9. Validate selected items are present on the cart.
 		
-	@Test(priority=4, enabled = false)
+	@Test(priority=4, enabled = true)
 	public static void allItems() {
 
 		// VALIDATION POINT:
@@ -255,7 +255,7 @@ public class Smoke_Test extends Functions {
 //	19. Click on Back home.
 //	20. Validate page will return to Products page.
 
-	@Test(priority = 6)
+	@Test(priority = 6,enabled = true)
 	public static void cancelOrder() {
 
 		// VALIDATION POINT:
@@ -280,7 +280,7 @@ public class Smoke_Test extends Functions {
 		
 		// VALIDATION POINT:
 		//		Verifies if user is able to land in cart page.
-		validator.expectedElement("//span[text()='Your Cart']]");
+		validator.expectedElement("//span[text()='Your Cart']");
 		
 		// VALIDATION POINT:
 		//		Verifies "Add to cart" button will turn in to "Remove" button after click.
@@ -295,7 +295,7 @@ public class Smoke_Test extends Functions {
 		
 		// VALIDATION POINT:
 		//		Verifies if user is able to land in cart page.
-		validator.expectedElement("//span[text()='Your Cart']]");
+		validator.expectedElement("//span[text()='Your Cart']");
 
 		// Checkout again
 		driver.findElement(By.xpath("//*[@id='checkout']")).click();

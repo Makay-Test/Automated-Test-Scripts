@@ -1,21 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="4" total="5" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-20T11:05:55 SGT" name="Default suite" finished-at="2024-12-20T11:06:21 SGT" duration-ms="25095">
+  <suite started-at="2024-12-20T12:03:56 SGT" name="Smoke Test" finished-at="2024-12-20T12:04:51 SGT" duration-ms="55203">
     <groups>
     </groups>
-    <test started-at="2024-12-20T11:05:55 SGT" name="Default test" finished-at="2024-12-20T11:06:21 SGT" duration-ms="25095">
+    <test started-at="2024-12-20T12:03:56 SGT" name="Test" finished-at="2024-12-20T12:04:51 SGT" duration-ms="55203">
       <class name="Test_Cases.Smoke_Test">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Test_Cases.Smoke_Test@498d318c]" started-at="2024-12-20T11:05:56 SGT" name="launchBrowser" finished-at="2024-12-20T11:06:20 SGT" duration-ms="24284" status="PASS">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:03:56 SGT" name="launchBrowser" finished-at="2024-12-20T12:03:58 SGT" duration-ms="2136" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method signature="checkOut()[pri:5, instance:Test_Cases.Smoke_Test@498d318c]" started-at="2024-12-20T11:06:20 SGT" name="checkOut" finished-at="2024-12-20T11:06:21 SGT" duration-ms="788" status="PASS">
+        <test-method signature="validateLogin()[pri:1, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:03:58 SGT" name="validateLogin" finished-at="2024-12-20T12:03:58 SGT" duration-ms="27" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateLogin -->
+        <test-method is-config="true" signature="exitBrowser()[pri:0, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:03:58 SGT" name="exitBrowser" finished-at="2024-12-20T12:03:58 SGT" duration-ms="108" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exitBrowser -->
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:03:58 SGT" name="launchBrowser" finished-at="2024-12-20T12:04:21 SGT" duration-ms="22451" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method signature="addItems()[pri:2, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:04:21 SGT" name="addItems" finished-at="2024-12-20T12:04:21 SGT" duration-ms="99" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addItems -->
+        <test-method is-config="true" signature="exitBrowser()[pri:0, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:04:21 SGT" name="exitBrowser" finished-at="2024-12-20T12:04:21 SGT" duration-ms="179" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exitBrowser -->
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:04:21 SGT" name="launchBrowser" finished-at="2024-12-20T12:04:22 SGT" duration-ms="1373" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method signature="validateCart()[pri:3, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:04:22 SGT" name="validateCart" finished-at="2024-12-20T12:04:23 SGT" duration-ms="221" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateCart -->
+        <test-method is-config="true" signature="exitBrowser()[pri:0, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:04:23 SGT" name="exitBrowser" finished-at="2024-12-20T12:04:23 SGT" duration-ms="87" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exitBrowser -->
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:04:23 SGT" name="launchBrowser" finished-at="2024-12-20T12:04:24 SGT" duration-ms="1370" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method signature="allItems()[pri:4, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:04:24 SGT" name="allItems" finished-at="2024-12-20T12:04:24 SGT" duration-ms="400" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- allItems -->
+        <test-method is-config="true" signature="exitBrowser()[pri:0, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:04:24 SGT" name="exitBrowser" finished-at="2024-12-20T12:04:25 SGT" duration-ms="84" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exitBrowser -->
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:04:25 SGT" name="launchBrowser" finished-at="2024-12-20T12:04:26 SGT" duration-ms="1357" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method signature="checkOut()[pri:5, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:04:26 SGT" name="checkOut" finished-at="2024-12-20T12:04:27 SGT" duration-ms="679" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkOut -->
+        <test-method is-config="true" signature="exitBrowser()[pri:0, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:04:27 SGT" name="exitBrowser" finished-at="2024-12-20T12:04:27 SGT" duration-ms="115" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exitBrowser -->
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:04:27 SGT" name="launchBrowser" finished-at="2024-12-20T12:04:50 SGT" duration-ms="23486" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method signature="cancelOrder()[pri:6, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:04:50 SGT" name="cancelOrder" finished-at="2024-12-20T12:04:51 SGT" duration-ms="874" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cancelOrder -->
+        <test-method is-config="true" signature="exitBrowser()[pri:0, instance:Test_Cases.Smoke_Test@59fd97a8]" started-at="2024-12-20T12:04:51 SGT" name="exitBrowser" finished-at="2024-12-20T12:04:51 SGT" duration-ms="114" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exitBrowser -->
       </class> <!-- Test_Cases.Smoke_Test -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test -->
+  </suite> <!-- Smoke Test -->
 </testng-results>

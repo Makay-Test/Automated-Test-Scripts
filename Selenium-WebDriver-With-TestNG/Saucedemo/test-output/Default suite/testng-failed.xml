@@ -5,8 +5,9 @@
     <classes>
       <class name="Test_Cases.Smoke_Test">
         <methods>
+          <include name="cancelOrder"/>
           <include name="launchBrowser"/>
-          <include name="checkOut"/>
+          <include name="exitBrowser"/>
         </methods>
       </class> <!-- Test_Cases.Smoke_Test -->
     </classes>
