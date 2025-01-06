@@ -42,12 +42,3 @@ public class validator extends Functions{
 	}
 
 }
-//// Removing Items from cart
-//driver.findElement(By.id("remove-sauce-labs-bike-light")).click();
-//driver.findElement(By.id("remove-sauce-labs-backpack")).click();
-//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//
-//// Proceeds to select other items
-//driver.findElement(By.id("continue-shopping")).click();
-//driver.findElement(By.id("add-to-cart-sauce-labs-bike-light")).click();
-//driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
